@@ -11,10 +11,8 @@ https.createServer({
   console.log('Listening on localhost:3000');
 });
 
-var index = fs.readFileSync('index.html');
-
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-  return res.end(index);
+  return res.sendfile('index.html');
 });
