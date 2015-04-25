@@ -34,7 +34,7 @@
 			'last': true
 		}
 	};
-	var currentActionIndex = '0';
+	var currentActionIndex = 0;
 
 	var speechRecogniton = new webkitSpeechRecognition();
 	speechRecogniton.lang = 'ru-RU';
