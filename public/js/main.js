@@ -6,22 +6,31 @@
 
 	var action = {
 		'0': {
-			'video': 'video/1/2.mp4',
-			'answers': ['привет', 'здравствуйте', 'здравствуй'],
+			'video': 'video/0.mp4',
+			'answers': ['привет', 'здравствуйте', 'здравствуй', 'добрый день'],
+			'vanswers': ['video/privet.mp4', 'video/zdravstvuyte.mp4', 'video/zdravstvuy.mp4', 'video/dobriy_den.mp4'],
 			'last': false
 		},
 		'1': {
-			'video': 'video/1/2.mp4',
+			'video': null,
 			'answers': ['как ваши дела', 'как дела', 'как поживаешь', 'как поживаете'],
+			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
 			'last': false
 		},
 		'2': {
-			'video': 'video/1/2.mp4',
-			'answers': ['как вас зовут', 'как ваше имя'],
+			'video': null,
+			'answers': ['как вас зовут', 'как тебя зовут'],
+			'vanswers': ['video/menya_zovut_kak_vas.mp4', 'video/menya_zovut_kak_vas.mp4'],
 			'last': false
 		},
 		'3': {
-			'video': 'video/1/2.mp4',
+			'video': null,
+			'answers': [],
+			'last': false
+		},
+		'4': {
+			'video': 'video/priyatno_poznakomitsa.mp4',
+			'answers': [],
 			'last': true
 		}
 	};
@@ -44,10 +53,16 @@
 		recognizing = false;
 		console.log(text);
 		var answers = action[currentActionIndex].answers;
-		var passed = false;
-		for (var i = 0; i < answers.length; i++) {
-			if(answers[i] === text) {
-				passed = true;
+		if (answers.length == 0) {
+			var passed = true;
+		} else {
+			var passed = false;
+			for (var i = 0; i < answers.length; i++) {
+				if(answers[i] === text) {
+					passed = true;
+					action[currentActionIndex + 1].video = action[currentActionIndex].vanswers[i];
+					break;
+				}
 			}
 		}
 		if(passed) {
