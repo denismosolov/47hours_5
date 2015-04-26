@@ -1,6 +1,12 @@
 
 (function(){
 	
+	window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+	if(! window.SpeechRecognition) {
+		warning.innerHTML = 'Your browser does not support voice recognition.';
+		warning.style.display = '';
+	}
+
 	var recognizing = false;
 	var text = '';
 	var wrongAnswer = false;
@@ -40,7 +46,7 @@
 	};
 	var currentActionIndex = 0;
 
-	var speechRecogniton = new webkitSpeechRecognition();
+	var speechRecogniton = new SpeechRecognition();
 	speechRecogniton.lang = 'ru-RU';
 	speechRecogniton.continuous = false;
 	speechRecogniton.interimResults = false;
