@@ -92,12 +92,21 @@ h1 {
   display: block;
   margin: 0 auto;
 }
+#start-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  cursor: pointer;
+}
 
 #messages {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 10%;
+  bottom: 5%;
   z-index: 3;
 }
 #messages p {

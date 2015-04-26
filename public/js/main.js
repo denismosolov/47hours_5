@@ -6,6 +6,11 @@
 		warning.innerHTML = 'Your browser does not support voice recognition.';
 		warning.style.display = '';
 	}
+	
+	$('#start-video').click(function(){
+		$(this).hide();
+		video.play();
+	});
 
 	var recognizing = false;
 	var text = '';
