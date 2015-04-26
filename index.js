@@ -1,7 +1,8 @@
 var fs = require('fs'),
   https = require('https'),
   express = require('express'),
-  app = express();
+  app = express(),
+  favicon = require('serve-favicon');
 
 https.createServer({
   key: fs.readFileSync('key.pem'),
@@ -17,6 +18,7 @@ app.listen(80, function() {
 
 app.use(express.static('public'));
 app.use(express.static('bower_components'));
+app.use(favicon(__dirname + '/favicon.ico'));
 
 app.use(function requireHTTPS(req, res, next) {
   if (!req.secure) {
