@@ -22,7 +22,7 @@
 			'answers': ['привет', 'здравствуйте', 'здравствуй', 'добрый день'],
 			'romanization': ['privet', 'zdrastvuyte', 'zdrastvuy', 'dobriy den\''],
 			'vanswers': ['video/privet.mp4', 'video/zdravstvuyte.mp4', 'video/zdravstvuy.mp4', 'video/dobriy_den.mp4'],
-			'hint': 'Say, hello <em>(in russian)</em>',
+			'hint': 'Say hello <em>(in russian)</em>',
 			'last': false
 		},
 		'1': {
@@ -30,7 +30,7 @@
 			'answers': ['как ваши дела', 'как дела', 'как твои дела', 'как поживаешь', 'как поживаете'],
 			'romanization': ['kak vashi dela', 'kak dela', 'kak tvoi dela', 'kak pozivaesh\'', 'kak pozivaete'],
 			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
-			'hint': 'Ask, how are you? <em>(in russian)</em>',
+			'hint': 'Ask how are you? <em>(in russian)</em>',
 			'last': false
 		},
 		'2': {
@@ -38,7 +38,7 @@
 			'answers': ['как вас зовут', 'как тебя зовут'],
 			'romanization': ['kak vas zovut', 'kak tebya zovut'],
 			'vanswers': ['video/menya_zovut_kak_vas.mp4', 'video/menya_zovut_kak_vas.mp4'],
-			'hint': 'Ask, what is you name?',
+			'hint': 'Ask what is you name?',
 			'last': false
 		},
 		'3': {
