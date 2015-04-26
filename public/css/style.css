@@ -18,7 +18,7 @@ body {
 }
 #slide3 {
   background-color: #7a3fb0;
-  padding: 6% 0 0 0;
+  padding: 0 0 0 0;
 }
 #slide4 {
   background-color: #b05b3f;
@@ -72,8 +72,10 @@ body {
 }
 
 #video {
-  width: 100%;
+  height: 100%;
   z-index: 1;
+  display: block;
+  margin: 0 auto;
 }
 
 #messages {
