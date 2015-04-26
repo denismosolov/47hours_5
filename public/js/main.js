@@ -29,11 +29,8 @@
 		'3': {
 			'video': null,
 			'answers': [],
-			'last': false
-		},
-		'4': {
-			'video': 'video/priyatno_poznakomitsa.mp4',
-			'answers': [],
+			'vanswers': ['video/priyatno_poznakomitsa.mp4'],
+			'hint': 'Answer the queston',
 			'last': true
 		}
 	};
@@ -49,8 +46,17 @@
 	};
 
 	speechRecogniton.onerror = function(event) {
-		warning.innerHTML = 'Allow the sites to access your camera and microphone and resfresh this page';
-		warning.style.display = '';
+		if(event.error == 'no-speech') {
+			if(! recognizing) {
+				speechRecogniton.start();
+			} else {
+				warning.innerHTML = 'Please refresh the page and start from beginning';
+				warning.style.display = '';
+			}
+		} else {
+			warning.innerHTML = 'Allow the sites to access your camera and microphone and resfresh this page';
+			warning.style.display = '';
+		}
 	};
 
 	speechRecogniton.onend = function() {
@@ -59,8 +65,12 @@
 		console.log(text);
 
 		var answers = action[currentActionIndex].answers;
-		var passed = false;
+		var passed = ! action[currentActionIndex].answers.length;
 		var nextVideo;
+
+		if(passed) {
+			nextVideo = action[currentActionIndex].vanswers[0];
+		}
 		for (var i = 0; i < answers.length; i++) {
 			if(answers[i] === text) {
 				passed = true;
@@ -68,24 +78,21 @@
 				break;
 			}
 		}
+		if(action[currentActionIndex].last) {
+			hint.innerHTML = '';
+			hint.style.display = 'none';
+			video.onended = function(){alert('Congratulations!')};
+		}
 		if(passed) {
-			if(action[currentActionIndex].last) {
-				currentActionIndex = 0;
-				nextVideo = 'video/0.mp4';
-				video.controls = true;
-				hint.innerHTML = '';
-				hint.style.display = 'none';
-				// @todo: lesson is ended
-			} else {
-				currentActionIndex++;
-				// go to next frame
-			}
-			video.src = nextVideo;
+			currentActionIndex++;
 		} else {
 			// @todo: it should be 'Sorry, I misunderstand you'
+			nextVideo = action[0].video;
 		}
+		video.src = nextVideo;
 		video.play();
 		text = '';
+
 	};
 
 	speechRecogniton.onresult = function(event) {
@@ -103,6 +110,11 @@
 	};
 
 	video.onended = function(){
+		if(recognizing) {
+			speechRecogniton.stop();
+			recognizing = false;
+		}
+
 		speechRecogniton.start();
 		recognizing = true;
 
