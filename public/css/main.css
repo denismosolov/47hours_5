@@ -4,6 +4,31 @@
    Author's custom styles
    ========================================================================== */
 
+.container {
+	position: relative;
+}
 #video {
 	width: 100%;
+	z-index: 1;
+}
+
+#messages {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 10%;
+	z-index: 3;
+}
+#messages p {
+	width: 100%;
+	padding: 20px 0;
+	background-color: #fff;
+	font: bold 20pt Arial;
+	text-align: center;
+}
+#warning {
+	color: red;
+}
+#hint {
+	color: #000;
 }

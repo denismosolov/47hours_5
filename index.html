@@ -10,8 +10,9 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <style>
             body {
-                padding-top: 50px;
-                padding-bottom: 20px;
+                /*padding-top: 50px;
+                padding-bottom: 20px;*/
+				padding: 0;
             }
         </style>
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
@@ -21,21 +22,23 @@
     </head>
     <body>
 
-    <div class="container">
-        <!-- display warnings like no microphone etc -->
-        <p id="warning" style="display: none;"></p>
-        <p id="hint" style="display: none;"></p>
-    </div>
+		<div class="container">
+			<video id="video" controls>
+				<source src="video/0.mp4" type="video/mp4">
+			</video>
+			<div id="messages">
+				<!-- display warnings like no microphone etc -->
+				<p id="warning" style="display: none;"></p>
+				<p id="hint" style="display: none;"></p>
+			</div> <!-- /messages -->
+		</div> <!-- /container --> 
+		
 
-    <div class="container">
-      <video id="video" controls>
-        <source src="video/0.mp4" type="video/mp4">
-      </video>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
+		<script src="js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/main.js"></script>
+		<script src="js/main.js"></script>
     </body>
 </html>
