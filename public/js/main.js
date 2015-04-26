@@ -38,7 +38,7 @@
 			'answers': ['как вас зовут', 'как тебя зовут'],
 			'romanization': ['kak vas zovut', 'kak tebya zovut'],
 			'vanswers': ['video/menya_zovut_kak_vas.mp4', 'video/menya_zovut_kak_vas.mp4'],
-			'hint': 'Ask what is you name?',
+			'hint': 'Ask what is your name?',
 			'last': false
 		},
 		'3': {
