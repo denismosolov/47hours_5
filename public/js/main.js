@@ -3,6 +3,7 @@
 	
 	var recognizing = false;
 	var text = '';
+	var wrongAnswer = false;
 
 	var action = {
 		'0': {
@@ -54,14 +55,11 @@
 				speechRecogniton.start();
 			}
 		} else if (event.error == 'not-allowed'){
-			warning.innerHTML = 'Allow the sites to access your microphone and resfresh this page';
-			warning.style.display = '';
+			showWarning('Allow the sites to access your microphone and resfresh this page');
 		} else if (event.error == 'service-not-allowed'){
-			warning.innerHTML = 'For using this site please open it in Google Chrome or Safari';
-			warning.style.display = '';
+			showWarning('For using this site please open it in Google Chrome or Safari');
 		} else {
-			warning.innerHTML = 'Please refresh the page and start from beginning';
-			warning.style.display = '';
+			showWarning('Please refresh the page and start from beginning');
 		}
 	};
 
@@ -87,12 +85,13 @@
 		for (var i = 0; i < answers.length; i++) {
 			if(answers[i] === text) {
 				passed = true;
+				wrongAnswer = false;
 				nextVideo = action[currentActionIndex].vanswers[i];
 				break;
 			}
 		}
 		if(action[currentActionIndex].last) {
-			hideHint();
+			hideAllMessages();
 			video.onended = function(){alert('Congratulations!')};
 		}
 		if(passed) {
@@ -100,8 +99,19 @@
 		} else {
 			// @todo: it should be 'Sorry, I misunderstand you'
 			nextVideo = 'video/ya_ne_ponimayu.mp4';
+			wrongAnswer = true;
+			// possible answers
+			var romanization = action[currentActionIndex].romanization;
+			var t = '<em>Possible anwers:</em> ';
+			var l = answers.length;
+			if (l > 2) l = 2;
+			for (var i = 0; i < l; i++) {
+				t += answers[i] + ' <span class="bold">(' + romanization[i] + ')</span>';
+				if (i + 1 != l) t += ', ';
+			}
+			setAnswers(t);
 		}
-		hideHint();
+		hideAllMessages();
 		video.src = nextVideo;
 		video.play();
 		text = '';
@@ -133,8 +143,9 @@
 
 		if(action[currentActionIndex].hint) {
 			showHint(action[currentActionIndex].hint);
+			if (wrongAnswer) showAnswers();
 		} else {
-			hideHint();
+			hideAllMessages();
 		}
 	};
 	
@@ -150,10 +161,18 @@
 	function hideWarning() {
 		$('#warning').fadeOut(300);
 	}
-	function showAnwers(text) {
-		$('#answers').text(text).fadeIn(300);
+	function setAnswers(text) {
+		$('#answers').html(text);
+	}
+	function showAnswers() {
+		$('#answers').fadeIn(300);
 	}
 	function hideAnswers() {
 		$('#answers').fadeOut(300);
+	}
+	function hideAllMessages() {
+		hideHint();
+		hideAnswers();
+		hideWarning();
 	}
 })();
