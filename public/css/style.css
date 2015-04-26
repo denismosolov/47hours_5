@@ -25,11 +25,19 @@ h1 {
   background-color: #b05b3f;
   padding-bottom: 0;
 }
+
 .icons {
   list-style: none;
   max-width: 1100px;
   margin: 0 auto;
   padding-top: 70px;
+  text-align: justify;
+  text-align-last: justify;
+}
+.icons:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
 }
 .icons .icon {
   color: #ffffff;
