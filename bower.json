@@ -1,0 +1,23 @@
+{
+  "name": "47hours_5",
+  "main": "index.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/denismosolov/47hours_5",
+  "authors": [
+    "Vitaliy Slobodin <vitaliy.slobodin@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fullpage.js": "~2.6.4"
+  }
+}

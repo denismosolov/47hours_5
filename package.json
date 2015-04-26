@@ -19,5 +19,9 @@
   "homepage": "https://github.com/denismosolov/47hours_5",
   "dependencies": {
     "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.0.1"
   }
 }

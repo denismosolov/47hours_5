@@ -1,45 +1,83 @@
-<!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Interactive Learning: Russian Language</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css">
+    <script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic">
+</head>
+<body>
+<div id="fullpage">
+    <div class="fp-section" id="slide1">
+        <h1 class="middle">Интерактивный способ изучения русского языка</h1>
+        <p class="middle">Уверенное устное общение на иностранном</p>
+        <ul class="icons">
+            <li class="icon">
+                <span class="icon-camera"></span>
+                <p>Интерактивное обучение через видео</p>
+            </li>
+            <li class="icon">
+                <span class="icon-microphone"></span>
+                <p>Общение с виртуальным человеком через микрофон</p>
+            </li>
+            <li class="icon">
+                <span class="icon-check"></span>
+                <p>Система определяет корректность произношения</p>
+            </li>
+            <li class="icon">
+                <span class="icon-bubbles"></span>
+                <p>Носители языка вас понимают</p>
+            </li>
+            <li class="icon">
+                <span class="icon-smile"></span>
+                <p>Процесс обучения быстрый и удобный</p>
+            </li>
+        </ul>
+    </div>
+    <div class="fp-section" id="slide2">
+        <h1 class="middle">Сейчас вы научитесь знакомиться с носителями иностранного языка</h1>
+        <p class="middle">
+            Видео с субтитрами покажет результат, к которому вы придете
+        </p>
+        <div class="video">
+            <span class="play-overlay"></span>
+            <img src="assets/images/video.png">
+        </div>
+    </div>
+    <div class="fp-section" id="slide3">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                /*padding-top: 50px;
-                padding-bottom: 20px;*/
-				padding: 0;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+    </div>
+    <div class="fp-section" id="slide4">
+        <div class="block">
+            &dash; Понравился формат?</br>
+            &dash; Ставьте лайк!
+        </div>
+        <div class="block-two">
+            &dash; Хотите увидеть сервис с интерактивным способом обучения?</br>
+            &dash; Репост!
+        </div>
 
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
+        <div class="footer">
+            Команда "Урок русского". Хакатон 2015
+            Проект на Github
+        </div>
+    </div>
+</div>
+<div id="fp-nav" class="right" style="margin-top: -43.5px;">
+    <ul>
+    </ul>
+</div>
 
-		<div class="container">
-			<video id="video" controls poster="images/anna.jpg">
-				<source src="video/0.mp4" type="video/mp4">
-			</video>
-			<div id="messages">
-				<!-- display warnings like no microphone etc -->
-				<p id="warning" style="display: none;"></p>
-				<p id="hint" style="display: none;"></p>
-				<p id="answers" style="display: none;"></p>
-			</div> <!-- /messages -->
-		</div> <!-- /container --> 
-		
-
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-
-		<script src="js/vendor/bootstrap.min.js"></script>
-
-		<script src="js/main.js"></script>
-    </body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#fullpage').fullpage({
+            verticalCentered: false,
+            navigation: true
+        });
+    });
+</script>
+</body>
 </html>
