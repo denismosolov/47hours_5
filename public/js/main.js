@@ -109,7 +109,7 @@
 			currentActionIndex++;
 		} else {
 			// @todo: it should be 'Sorry, I misunderstand you'
-			nextVideo = 'video/ya_ne_ponimayu.mp4';
+			nextVideo = 'video/ya_ne_ponimayu.mp4?v=1';
 			wrongAnswer = true;
 			// possible answers
 			var romanization = action[currentActionIndex].romanization;
