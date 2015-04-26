@@ -1,7 +1,7 @@
 
 (function(){
+
 	var recognizing = false;
-	var error = false;
 	var text = '';
 
 	var action = {
@@ -46,30 +46,36 @@
 	};
 
 	speechRecogniton.onerror = function(event) {
-		error = true;
+		warning.innerHTML = 'Allow the sites to access your camera and microphone and resfresh this page';
+		warning.style.display = '';
 	};
 
 	speechRecogniton.onend = function() {
 		recognizing = false;
+
 		console.log(text);
+
 		var answers = action[currentActionIndex].answers;
-		if (answers.length == 0) {
-			var passed = true;
-		} else {
-			var passed = false;
-			for (var i = 0; i < answers.length; i++) {
-				if(answers[i] === text) {
-					passed = true;
-					action[currentActionIndex + 1].video = action[currentActionIndex].vanswers[i];
-					break;
-				}
+		var passed = false;
+		for (var i = 0; i < answers.length; i++) {
+			if(answers[i] === text) {
+				passed = true;
+				video.src = action[currentActionIndex].vanswers[i];
+				break;
 			}
 		}
 		if(passed) {
-			currentActionIndex++;
-			video.src = action[currentActionIndex].video;
+			if(action[currentActionIndex].last) {
+				// the dialog is finishes, so it returns to initial state
+				currentActionIndex = 0;
+				video.controls = true;
+			} else {
+				// go to next frame
+				currentActionIndex++;
+			}
 		} else {
-			// @todo: not recognized
+			// @todo: it hsould be 'Sorry, I misunderstand you'
+			video.src = 'video/0.mp4';
 		}
 		text = '';
 	};
@@ -83,6 +89,10 @@
 			}
 		}
 	}
+
+	video.onplay = function(){
+		video.controls = false;
+	};
 
 	video.onended = function(){
 		speechRecogniton.start();
