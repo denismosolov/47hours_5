@@ -2,11 +2,11 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Interactive Learning: Russian Language</title>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" defer></script>
     <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css">
-    <script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <script src="bower_components/fullpage.js/jquery.fullPage.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic">
 </head>
 <body>
@@ -48,7 +48,15 @@
         </div>
     </div>
     <div class="fp-section" id="slide3">
-
+        <video id="video" controls poster="images/anna.jpg">
+            <source src="video/0.mp4" type="video/mp4">
+        </video>
+        <div id="messages">
+            <!-- display warnings like no microphone etc -->
+            <p id="warning" style="display: none;"></p>
+            <p id="hint" style="display: none;"></p>
+            <p id="answers" style="display: none;"></p>
+        </div>
     </div>
     <div class="fp-section" id="slide4">
         <div class="block">
@@ -79,5 +87,6 @@
         });
     });
 </script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
