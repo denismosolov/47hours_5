@@ -27,9 +27,9 @@
 		},
 		'1': {
 			'video': null,
-			'answers': ['как ваши дела', 'как дела', 'как поживаешь', 'как поживаете'],
-			'romanization': ['kak vashi dela', 'kak dela', 'kak pozivaesh\'', 'kak pozivaete'],
-			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
+			'answers': ['как ваши дела', 'как дела', 'как твои дела', 'как поживаешь', 'как поживаете'],
+			'romanization': ['kak vashi dela', 'kak dela', 'kak tvoi dela', 'kak pozivaesh\'', 'kak pozivaete'],
+			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
 			'hint': 'Ask, how are you? <em>(in russian)</em>',
 			'last': false
 		},
