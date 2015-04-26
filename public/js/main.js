@@ -1,6 +1,6 @@
 
 (function(){
-
+	
 	var recognizing = false;
 	var text = '';
 
@@ -61,8 +61,15 @@
 
 	speechRecogniton.onend = function() {
 		recognizing = false;
-
+		
 		console.log(text);
+		
+		if (! text) {
+			if(! recognizing) {
+				speechRecogniton.start();
+			}
+			return;
+		}
 
 		var answers = action[currentActionIndex].answers;
 		var passed = ! action[currentActionIndex].answers.length;
@@ -79,16 +86,16 @@
 			}
 		}
 		if(action[currentActionIndex].last) {
-			hint.innerHTML = '';
-			hint.style.display = 'none';
+			hideHint();
 			video.onended = function(){alert('Congratulations!')};
 		}
 		if(passed) {
 			currentActionIndex++;
 		} else {
 			// @todo: it should be 'Sorry, I misunderstand you'
-			nextVideo = action[0].video;
+			nextVideo = 'video/ya_ne_ponimayu.mp4';
 		}
+		hideHint();
 		video.src = nextVideo;
 		video.play();
 		text = '';
@@ -119,11 +126,16 @@
 		recognizing = true;
 
 		if(action[currentActionIndex].hint) {
-			hint.innerHTML = action[currentActionIndex].hint;
-			hint.style.display = '';
+			showHint(action[currentActionIndex].hint);
 		} else {
-			hint.innerHTML = '';
-			hint.style.display = 'none';
+			hideHint();
 		}
 	};
+	
+	function showHint(text) {
+		$('#hint').text(text).fadeIn(300);
+	}
+	function hideHint() {
+		$('#hint').fadeOut(300);
+	}
 })();
