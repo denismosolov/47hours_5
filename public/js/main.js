@@ -8,6 +8,7 @@
 		'0': {
 			'video': 'video/0.mp4',
 			'answers': ['привет', 'здравствуйте', 'здравствуй', 'добрый день'],
+			'romanization': ['privet', 'zdrastvuyte', 'zdrastvuy', 'dobriy den\''],
 			'vanswers': ['video/privet.mp4', 'video/zdravstvuyte.mp4', 'video/zdravstvuy.mp4', 'video/dobriy_den.mp4'],
 			'hint': 'Say, hello',
 			'last': false
@@ -15,6 +16,7 @@
 		'1': {
 			'video': null,
 			'answers': ['как ваши дела', 'как дела', 'как поживаешь', 'как поживаете'],
+			'romanization': ['kak vashi dela', 'kak dela', 'kak pozivaesh\'', 'kak pozivaete'],
 			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
 			'hint': 'Ask, how are you?',
 			'last': false
@@ -22,6 +24,7 @@
 		'2': {
 			'video': null,
 			'answers': ['как вас зовут', 'как тебя зовут'],
+			'romanization': ['kak vas zovut', 'kak tebya zovut'],
 			'vanswers': ['video/menya_zovut_kak_vas.mp4', 'video/menya_zovut_kak_vas.mp4'],
 			'hint': 'Ask, what is you name?',
 			'last': false
@@ -49,12 +52,15 @@
 		if(event.error == 'no-speech') {
 			if(! recognizing) {
 				speechRecogniton.start();
-			} else {
-				warning.innerHTML = 'Please refresh the page and start from beginning';
-				warning.style.display = '';
 			}
+		} else if (event.error == 'not-allowed'){
+			warning.innerHTML = 'Allow the sites to access your microphone and resfresh this page';
+			warning.style.display = '';
+		} else if (event.error == 'service-not-allowed'){
+			warning.innerHTML = 'For using this site please open it in Google Chrome or Safari';
+			warning.style.display = '';
 		} else {
-			warning.innerHTML = 'Allow the sites to access your camera and microphone and resfresh this page';
+			warning.innerHTML = 'Please refresh the page and start from beginning';
 			warning.style.display = '';
 		}
 	};
@@ -137,5 +143,17 @@
 	}
 	function hideHint() {
 		$('#hint').fadeOut(300);
+	}
+	function showWarning(text) {
+		$('#warning').text(text).fadeIn(300);
+	}
+	function hideWarning() {
+		$('#warning').fadeOut(300);
+	}
+	function showAnwers(text) {
+		$('#answers').text(text).fadeIn(300);
+	}
+	function hideAnswers() {
+		$('#answers').fadeOut(300);
 	}
 })();
