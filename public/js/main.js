@@ -2,6 +2,11 @@
 (function(){
 	
 	window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+	if(! window.SpeechRecognition) {
+		warning.innerHTML = 'Your browser does not support voice recognition.';
+		warning.style.display = '';
+	}
+
 	var recognizing = false;
 	var text = '';
 
