@@ -12,6 +12,7 @@ https.createServer({
 });
 
 app.use(express.static('public'));
+app.use(express.static('bower_components'));
 
 app.get('/', function (req, res) {
   return res.sendfile('index.html');
