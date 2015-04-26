@@ -1,6 +1,7 @@
 
 (function(){
 	
+	window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 	var recognizing = false;
 	var text = '';
 
@@ -39,7 +40,7 @@
 	};
 	var currentActionIndex = 0;
 
-	var speechRecogniton = new webkitSpeechRecognition();
+	var speechRecogniton = new SpeechRecognition();
 	speechRecogniton.lang = 'ru-RU';
 	speechRecogniton.continuous = false;
 	speechRecogniton.interimResults = false;
