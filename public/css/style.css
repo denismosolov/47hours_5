@@ -129,3 +129,27 @@ h1 {
 #messages #answers .bold {
   font-weight: bold;
 }
+
+#lesson, #final {
+  height: 100%;
+}
+#final {
+  display: none;
+  /*position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
+}
+#final-text {
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  width: 100%;
+}
+#final-img {
+  vertical-align: -17px;
+}

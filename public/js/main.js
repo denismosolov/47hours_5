@@ -22,7 +22,7 @@
 			'answers': ['привет', 'здравствуйте', 'здравствуй', 'добрый день'],
 			'romanization': ['privet', 'zdrastvuyte', 'zdrastvuy', 'dobriy den\''],
 			'vanswers': ['video/privet.mp4', 'video/zdravstvuyte.mp4', 'video/zdravstvuy.mp4', 'video/dobriy_den.mp4'],
-			'hint': 'Say, hello',
+			'hint': 'Say, hello <em>(in russian)</em>',
 			'last': false
 		},
 		'1': {
@@ -30,7 +30,7 @@
 			'answers': ['как ваши дела', 'как дела', 'как поживаешь', 'как поживаете'],
 			'romanization': ['kak vashi dela', 'kak dela', 'kak pozivaesh\'', 'kak pozivaete'],
 			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
-			'hint': 'Ask, how are you?',
+			'hint': 'Ask, how are you? <em>(in russian)</em>',
 			'last': false
 		},
 		'2': {
@@ -103,7 +103,7 @@
 		}
 		if(action[currentActionIndex].last) {
 			hideAllMessages();
-			video.onended = function(){alert('Congratulations!')};
+			video.onended = showFinal;
 		}
 		if(passed) {
 			currentActionIndex++;
@@ -161,13 +161,13 @@
 	};
 	
 	function showHint(text) {
-		$('#hint').text(text).fadeIn(300);
+		$('#hint').html(text).fadeIn(300);
 	}
 	function hideHint() {
 		$('#hint').fadeOut(300);
 	}
 	function showWarning(text) {
-		$('#warning').text(text).fadeIn(300);
+		$('#warning').html(text).fadeIn(300);
 	}
 	function hideWarning() {
 		$('#warning').fadeOut(300);
@@ -185,5 +185,9 @@
 		hideHint();
 		hideAnswers();
 		hideWarning();
+	}
+	function showFinal() {
+		$('#lesson').fadeOut(300);
+		$('#final').fadeIn(300);
 	}
 })();

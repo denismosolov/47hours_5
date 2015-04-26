@@ -16,23 +16,23 @@
         <p class="middle">Уверенное устное общение на иностранном</p>
         <ul class="icons">
             <li class="icon">
-                <span class="icon-camera"></span>
+                <img src="images/icon-camera.png">
                 <p>Интерактивное обучение через видео</p>
             </li>
             <li class="icon">
-                <span class="icon-microphone"></span>
+                <img src="images/icon-microphone.png">
                 <p>Общение с виртуальным человеком через микрофон</p>
             </li>
             <li class="icon">
-                <span class="icon-check"></span>
+                <img src="images/icon-check.png">
                 <p>Система определяет корректность произношения</p>
             </li>
             <li class="icon">
-                <span class="icon-bubbles"></span>
+                <img src="images/icon-bubbles.png">
                 <p>Носители языка вас понимают</p>
             </li>
             <li class="icon">
-                <span class="icon-smile"></span>
+                <img src="images/icon-smile.png">
                 <p>Процесс обучения быстрый и удобный</p>
             </li>
         </ul>
@@ -48,16 +48,21 @@
         </div>
     </div>
     <div class="fp-section" id="slide3">
-        <video id="video" poster="images/anna.jpg">
-            <source src="video/0.mp4" type="video/mp4">
-        </video>
-		<img src="images/command-play.png" id="start-video">
-        <div id="messages">
-            <!-- display warnings like no microphone etc -->
-            <p id="warning" style="display: none;"></p>
-            <p id="hint" style="display: none;"></p>
-            <p id="answers" style="display: none;"></p>
-        </div>
+		<div id="lesson">
+			<video id="video" poster="images/anna.jpg">
+				<source src="video/0.mp4" type="video/mp4">
+			</video>
+			<img src="images/command-play.png" id="start-video">
+			<div id="messages">
+				<!-- display warnings like no microphone etc -->
+				<p id="warning" style="display: none;"></p>
+				<p id="hint" style="display: none;"></p>
+				<p id="answers" style="display: none;"></p>
+			</div>
+		</div>
+		<div id="final">
+			<h1 id="final-text"><img src="images/icon-check.png" id="final-img"> Lesson complited</h1>
+		</div>
     </div>
     <div class="fp-section" id="slide4">
         <div class="block">
@@ -85,8 +90,8 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#fullpage').fullpage({
-            verticalCentered: false,
-            navigation: true
+            navigation: true,
+            verticalCentered: true
         });
         ouibounce($('#modal')[0]);
     });
