@@ -9,18 +9,21 @@
 			'video': 'video/0.mp4',
 			'answers': ['привет', 'здравствуйте', 'здравствуй', 'добрый день'],
 			'vanswers': ['video/privet.mp4', 'video/zdravstvuyte.mp4', 'video/zdravstvuy.mp4', 'video/dobriy_den.mp4'],
+			'hint': 'Say, hello',
 			'last': false
 		},
 		'1': {
 			'video': null,
 			'answers': ['как ваши дела', 'как дела', 'как поживаешь', 'как поживаете'],
 			'vanswers': ['video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4', 'video/horosho_spasibo.mp4'], 
+			'hint': 'Ask, how are you?',
 			'last': false
 		},
 		'2': {
 			'video': null,
 			'answers': ['как вас зовут', 'как тебя зовут'],
 			'vanswers': ['video/menya_zovut_kak_vas.mp4', 'video/menya_zovut_kak_vas.mp4'],
+			'hint': 'Ask, what is you name?',
 			'last': false
 		},
 		'3': {
@@ -57,26 +60,31 @@
 
 		var answers = action[currentActionIndex].answers;
 		var passed = false;
+		var nextVideo;
 		for (var i = 0; i < answers.length; i++) {
 			if(answers[i] === text) {
 				passed = true;
-				video.src = action[currentActionIndex].vanswers[i];
+				nextVideo = action[currentActionIndex].vanswers[i];
 				break;
 			}
 		}
 		if(passed) {
 			if(action[currentActionIndex].last) {
-				// the dialog is finishes, so it returns to initial state
 				currentActionIndex = 0;
+				nextVideo = 'video/0.mp4';
 				video.controls = true;
+				hint.innerHTML = '';
+				hint.style.display = 'none';
+				// @todo: lesson is ended
 			} else {
-				// go to next frame
 				currentActionIndex++;
+				// go to next frame
 			}
+			video.src = nextVideo;
 		} else {
-			// @todo: it hsould be 'Sorry, I misunderstand you'
-			video.src = 'video/0.mp4';
+			// @todo: it should be 'Sorry, I misunderstand you'
 		}
+		video.play();
 		text = '';
 	};
 
@@ -97,5 +105,13 @@
 	video.onended = function(){
 		speechRecogniton.start();
 		recognizing = true;
+
+		if(action[currentActionIndex].hint) {
+			hint.innerHTML = action[currentActionIndex].hint;
+			hint.style.display = '';
+		} else {
+			hint.innerHTML = '';
+			hint.style.display = 'none';
+		}
 	};
 })();
