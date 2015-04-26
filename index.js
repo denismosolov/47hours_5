@@ -7,7 +7,7 @@ https.createServer({
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem'),
   passphrase: 'denis'
-}, app).listen(3000, function() {
+}, app).listen(443, function() {
   console.log('Listening on localhost:3000');
 });
 
