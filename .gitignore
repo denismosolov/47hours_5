@@ -70,3 +70,8 @@ Icon?
 Thumbs.db
 packages
 
+# Vagrant #
+###########
+.vagrant
+
+public/css/style.css

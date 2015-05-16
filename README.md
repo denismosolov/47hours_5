@@ -4,10 +4,15 @@ Hackathon 47 hours
 # Installation
 
 ```javascript
-$ npm install
-$ node index.js
+$ vagrant up
 ```
 
-Open in your browser https://localhost:3000
+Then add the following line to your local hosts file:
 
-Don't forget about ```https```
+```
+192.168.50.4 russian-lesson.com
+```
+
+# Run
+
+Open in your browser http://russian-lesson.com

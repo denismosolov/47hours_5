@@ -5,10 +5,10 @@ module.exports = function(grunt) {
     less: {
       compile: {
         options: {
-          paths: ['assets/css']
+          paths: ['public/css']
         },
         files: {
-          'assets/css/style.css': 'assets/less/style.less'
+          'public/css/style.css': 'public/less/style.less'
         }
       }
     }

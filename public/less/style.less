@@ -3,6 +3,11 @@ body {
   color: #ffffff;
 }
 
+h1 {
+  font-weight: normal;
+  margin: 0;
+}
+
 .middle {
   text-align: center;
 }
@@ -17,23 +22,30 @@ body {
 
 #slide2 {
   background-color: #b03f9b;
-  padding: 6% 0 0 0;
 }
 
 #slide3 {
   background-color: #7a3fb0;
-  padding: 6% 0 0 0;
 }
 
 #slide4 {
   background-color: #b05b3f;
-  padding: 6% 0 0 0;
+  padding-bottom: 0;
 }
 
 .icons {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 70px;
+  text-align: justify;
+  text-align-last: justify;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
 
   .icon {
     color: #ffffff;
@@ -43,6 +55,7 @@ body {
     margin: 0 5px;
     text-decoration: none;
     text-align: center;
+    max-width: 200px;
   }
 
   .icon-camera {
@@ -69,6 +82,7 @@ body {
 .video {
   margin-left: 20%;
   height: 441px;
+  margin-top: 30px;
   z-index: 1;
 }
 
@@ -80,10 +94,92 @@ body {
 .block-two {
   font-size: 2em;
   margin-left: 20%;
-  padding-top: 10%;
+  padding-top: 2%;
 }
 
 .footer {
-  margin-left: 75%;
-  margin-top: 15%;
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  margin-left: 230px;
+}
+
+.footer a {
+  color: #ffffff;
+}
+
+.footer a:hover {
+  text-decoration: none;
+}
+
+#video {
+  height: 100%;
+  z-index: 1;
+  display: block;
+  margin: 0 auto;
+}
+
+#start-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  cursor: pointer;
+}
+
+#messages {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+  z-index: 3;
+}
+
+#messages p {
+  width: 100%;
+  padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  font: bold 26px Arial;
+  text-align: center;
+}
+
+#warning {
+  color: red;
+}
+
+#hint, #answers {
+  color: #000;
+}
+
+#messages #answers {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+#messages #answers .bold {
+  font-weight: bold;
+}
+
+#lesson, #final {
+  height: 100%;
+}
+
+#final {
+  display: none;
+}
+
+#final-text {
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  width: 100%;
+}
+
+#final-img {
+  vertical-align: -17px;
 }
