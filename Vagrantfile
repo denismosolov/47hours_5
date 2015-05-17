@@ -16,5 +16,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network "private_network", ip: "192.168.50.4"
 
-  config.vm.synced_folder "public/", "/var/www/russian-lesson.com/public_html", create: true, group: "www-data", owner: "www-data"
+  config.vm.synced_folder "public/", "/var/www/russian-lesson.com/public", create: true, group: "www-data", owner: "www-data"
 end
