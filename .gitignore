@@ -12,7 +12,6 @@ obj
 node_modules
 /modular/client/build
 /modular/build
-bower_components
 **/test/coverage
 /reports
 
@@ -74,4 +73,3 @@ packages
 ###########
 .vagrant
 
-public/css/style.css
